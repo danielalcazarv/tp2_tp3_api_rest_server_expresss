@@ -28,15 +28,17 @@ class LibrosMemoria {
         }
     }
 
-    guardarLibro = async nota => {
+    guardarLibro = async libro => {
         try {
             const id = this.getNext_Id(this.libros)
-            const libroNuevo = {id, ...nota}
-            this.notas.push(libroNuevo)
+            const libroNuevo = { id, ...libro }
+            this.libros.push(libroNuevo)
+
             return libroNuevo
         } catch (error) {
-            console.log('error en guardarLibro:',error)
+            console.log('error en guardarLibro:', error)
             let libro = {}
+
             return libro
         }
     }

@@ -1,11 +1,14 @@
 import express from 'express'
+import RouterLibros from './router/libros.js';
 
 const app = express();
 
+app.use(express.static('public'))
+app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.send('iniciando server express');
-});
+const routerLibros = new RouterLibros()
+
+app.use('/api', routerLibros.start())
 
 
 const PORT = 8080;
